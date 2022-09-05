@@ -1,6 +1,6 @@
 import React from "react";
-import logo from '../assets/logo.png'
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import logo from '../assets/logo.png';
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
     return (
@@ -11,7 +11,7 @@ const NavBar = () => {
                 <a style={styles.links} href="" >PRODUCTOS</a>
                 <a style={styles.links} href="" >CONTACTOS</a>
             </nav>
-            <ShoppingCartIcon style={styles.carrito} fontSize="large" />
+            <CartWidget/>
         </header>
     )
 }
@@ -27,7 +27,7 @@ const styles = {
 
     imagen: {
         width: '10%',
-        paddingLeft: '10%',
+        paddingLeft: '7%',
 
     },
 
@@ -40,9 +40,6 @@ const styles = {
         color: '#0f0f0f',
     },
 
-    carrito: {
-        paddingRight: '10%',
-    }
 }
 
 export default NavBar
