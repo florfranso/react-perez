@@ -1,12 +1,16 @@
 import React from "react";
-import NavBar from "./components/NavBar"; //o ./components/NavBar/NavBar
-import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar.js";
+import ItemListContainer from "./Containers/ItemListContaine/ItemListContainer";
 
 const App = () => {
+
+  const mensaje = "TIENDA DE JARDINERIA SIEMPRE VERDE"
+
+
   return (
     <>
       < NavBar />
-      < ItemListContainer greeting= "TIENDA DE JARDINERIA SIEMPRE VERDE"/>
+      < ItemListContainer greeting= {mensaje}/>
     </>
   )
 }
