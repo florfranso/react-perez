@@ -1,0 +1,49 @@
+.item {
+    display: flex;
+    height: 300px;
+    width: 250px;
+    transition: transform 0.2s;
+    background-color: #A6CF98;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 20px;
+    filter: drop-shadow(5px 5px 5px #557C55);
+    margin: 15px;
+}
+
+.item:hover {
+    transform: scale(1.05, 1.05);
+    transition: transform 0.2s;
+}
+
+.item p {
+    display: flex;
+    align-items: left;
+    font-size: 15px;
+    height: 5px;
+}
+
+.item h3 {
+    height: 10px;
+}
+
+.item img {
+    display: flex;
+    width: 220px;
+    height: 165px;
+    border-radius: 20px;
+}
+
+.item button {
+    border: 0;
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 15px;
+}
+
+.item .price {
+    font-size: 20px;
+}

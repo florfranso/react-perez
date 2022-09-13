@@ -8,7 +8,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
 
     const decremento = () => {
-        if (contador >= initial) {
+        if (contador > initial) {
             setContador(contador - 1);
         }
     }
@@ -27,10 +27,10 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <>
             <div style={styles.producto}>PRODUCTO</div>
             <div style={styles.contenedor}>
-                <button style={styles.boton} onClick={decremento}> - </button>
+                <button disabled={contador <= initial} style={styles.boton} onClick={decremento}> - </button>
                 <h1 style={styles.numero}> {contador} </h1>
                 <button 
-                    disabled={contador >= stock}
+                    disabled={contador === stock}
                     onClick={aumento}
                     style={styles.boton}
                 > + </button>
