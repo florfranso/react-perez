@@ -27,7 +27,7 @@ export const products = [
         product: "AGAPANTOS AZUL",
         categoria:"PLANTAS DE EXTERIOR",
         descripcion: "",
-        precio: 5,
+        precio: 1000,
         stock:5
     },
 
