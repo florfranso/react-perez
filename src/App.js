@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "./components/NavBar.js";
-import ItemListContainer from "./Containers/ItemListContaine/ItemListContainer";
+import ItemDetailContainer from "./Containers/container/ItemDetailContainer.jsx";
+import ItemListContainer from "./Containers/container/ItemListContainer.jsx"
 
 const App = () => {
 
@@ -11,6 +12,7 @@ const App = () => {
     <>
       < NavBar />
       < ItemListContainer greeting= {mensaje}/>
+      < ItemDetailContainer />
     </>
   )
 }
