@@ -25,7 +25,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     return (
         <>
-            <div style={styles.producto}>PRODUCTO</div>
+            <div style={styles.producto}>CANTIDAD</div>
             <div style={styles.contenedor}>
                 <button disabled={contador <= initial} style={styles.boton} onClick={decremento}> - </button>
                 <h1 style={styles.numero}> {contador} </h1>
@@ -45,14 +45,15 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
 
 //Estilos
-
 const styles = {
     producto: {
         display: 'flex',
-        fontSize: 40,
+        fontSize: 18,
         alignItems: 'center',
         justifyContent: 'center',
+        marginRight:30,
     },
+
 
     contenedor: {
         display: 'flex',
@@ -60,11 +61,11 @@ const styles = {
         flexDirection: 'row',
         backgroundColor: ' #557C55',
         justifyContent: 'center',
-        height: 40,
+        height: 30,
+        width:150,
         padding: 10,
+        marginLeft: 120,
         borderRadius: 20,
-        marginLeft: 550,
-        marginRight: 550,
         alignItems: 'center',
     },
 
@@ -91,6 +92,7 @@ const styles = {
     contenedorAgregar: {
         justifyContent: 'center',
         display: 'flex',
+        marginRight: 30,
         
     },
 

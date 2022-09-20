@@ -1,3 +1,28 @@
+/* import React, { useState, useEffect } from 'react'
+import ItemDetail from '../../components/ItemDetail/ItemDetail';
+
+const ItemDetailContainer = () => {
+
+    const [product, setProduct] = useState({});
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products/2')
+            .then((response) => response.json())
+            .then(json=>{
+                setProduct(json)
+            })
+    }, [])
+
+    return (
+        <>
+            <ItemDetail item={product[]} />
+        </>
+    )
+}
+
+export default ItemDetailContainer */
+
+
 import React, { useState, useEffect } from 'react';
 import { products } from '../../assets/productos';
 import { customFetch } from '../../utils/customFetch';
@@ -34,7 +59,7 @@ const ItemDetailContainer = () => {
                         <RotatingLines style={styles.spinner} />
                     </div>
                 ) : (
-                    < ItemDetail item={product} />
+                    < ItemDetail item={product[1]} />
                 )
             }
 
@@ -63,7 +88,3 @@ const styles = {
 
 
 export default ItemDetailContainer
-
-
-
-

@@ -1,0 +1,59 @@
+h1 {
+    font-size: 70px;
+    text-align: center;
+    margin-left: 30px;
+}
+
+h2 {
+    font-size: 25px;
+    margin-left: 60px;
+    padding: 20px;
+    margin-top: 0px;
+}
+
+.precio {
+
+    font-size: 25px;
+    margin-left: 170px;
+    margin-top: 0px;
+}
+
+.container-ppal{
+    background-color: #A6CF98;
+    width: 80%;
+    height: 80%;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(5px 5px 5px #557C55);
+    border-radius: 20px;
+/*     transition: transform 0.2s;
+ */
+
+}
+.container {
+    display: flex;
+}
+
+.container img {
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.card {
+    flex-direction: row;
+}
+
+.colum {
+    flex-direction: column;
+    display: flex;
+}
+
+.descripcion {
+    margin: 20px;
+    text-align: justify;
+    margin-top: 0px;
+}
