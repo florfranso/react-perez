@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import ItemCount from '../../components/ItemCount';
 import { products } from '../../../assets/productos';
 import { customFetch } from '../../../utils/customFetch';
 import ItemList from './ItemList';
@@ -12,10 +11,6 @@ const ItemListContainer = ({ greeting }) => {
     console.log(IdCategoria);
 
 
-    // const agregarAlCarrito = (contador) => {
-    //    console.log("LOS PRODUCTOS FUERON CARGADOS CON EXITO");
-    //  };
-
     const [listProducts, setListProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
@@ -23,40 +18,39 @@ const ItemListContainer = ({ greeting }) => {
         customFetch(products)
             .then(res => {
                 if (IdCategoria) {
-                    setListProducts(res.filter((products)=> products.catergoria === IdCategoria))
+                    setListProducts(res.filter((products) => products.catergoria === IdCategoria))
                     setLoading(false)
-                }else {
+                } else {
                     setListProducts(res)
-             //       setLoading(false)
+                    //       setLoading(false)
                 }
             })
     }, [IdCategoria])
 
 
-return (
-    < >
-        <h1 style={styles.estilo}>{greeting}</h1>
-        {
-            loading ? (
-                <div
-                    style={{
-                        width: "100%",
-                        height: "60vh",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                    }}
-                >
-                    <RotatingLines style={styles.spinner} />
-                </div>
-            ) : (
-                < ItemList listProducts={listProducts} />
-            )
-        }
-        {/*  < ItemCount stock={8} initial={1} onAdd={agregarAlCarrito} />
- */}
-    </>
-)
+    return (
+        < >
+            <h1 style={styles.estilo}>{greeting}</h1>
+            {
+                loading ? (
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "60vh",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                        }}
+                    >
+                        <RotatingLines style={styles.spinner} />
+                    </div>
+                ) : (
+                    < ItemList listProducts={listProducts} />
+                )
+            }
+
+        </>
+    )
 }
 
 
