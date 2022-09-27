@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 
 
 const ItemDetail = ({ item }) => {
-    /*   const agregarAlCarrito = (contador) => {
-          console.log("LOS PRODUCTOS FUERON CARGADOS CON EXITO")
-      }; */
+
     const [terminarCompra, setTerminarCompra] = useState();
     // Respuesta a Carga en log.
     const onAdd = (cantidad) => {

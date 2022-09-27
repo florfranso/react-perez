@@ -18,11 +18,12 @@ const ItemListContainer = ({ greeting }) => {
         customFetch(products)
             .then(res => {
                 if (IdCategoria) {
-                    setListProducts(res.filter((products) => products.catergoria === IdCategoria))
+                    setListProducts(res.filter((products) => products.categoria === IdCategoria.toUpperCase())
+                    );
                     setLoading(false)
                 } else {
                     setListProducts(res)
-                    //       setLoading(false)
+                    setLoading(false)
                 }
             })
     }, [IdCategoria])

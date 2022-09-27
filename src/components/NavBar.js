@@ -11,11 +11,11 @@ const NavBar = () => {
             </Link>
 
             <nav>
-                <NavLink style={styles.links} to={'categoria/plantasinterior'}>PLANTAS INTERIOR</NavLink>
-                <Link style={styles.links} to={'categoria/plantasexterior'} >PLANTAS EXTERIOR</Link>
-                <Link style={styles.links} to={'categoria/macetas'} >MACETAS</Link>
-                <Link style={styles.links} to={'categoria/sustratosymejoradores'} >SUSTRATOS Y MEJORADORES</Link>
-                <Link style={styles.links} to={'categoria/accesoriosdejardin'} >ACCESORIOS DE JARDIN</Link>
+                <NavLink style={styles.links} to={'categoria/PLANTAS_INTERIOR'}>PLANTAS INTERIOR</NavLink>
+                <Link style={styles.links} to={'categoria/PLANTAS_EXTERIOR'} >PLANTAS EXTERIOR</Link>
+                <Link style={styles.links} to={'categoria/MACETAS'} >MACETAS</Link>
+                <Link style={styles.links} to={'categoria/SUSTRATOS_Y_MEJORADORES'} >SUSTRATOS Y MEJORADORES</Link>
+                <Link style={styles.links} to={'categoria/ACCESORIOS_DE_JARDIN'} >ACCESORIOS DE JARDIN</Link>
             </nav>
             <Link to={'/cart'}> <CartWidget /></Link>
         </header>
