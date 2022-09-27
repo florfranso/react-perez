@@ -14,6 +14,7 @@ const CartWidget = () => {
 const styles = {
     carrito: {
         paddingRight: '10%',
+        marginRight: '20%',
     }
 }
 

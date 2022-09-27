@@ -1,46 +1,24 @@
-/* import React, { useState, useEffect } from 'react'
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
-
-const ItemDetailContainer = () => {
-
-    const [product, setProduct] = useState({});
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/2')
-            .then((response) => response.json())
-            .then(json=>{
-                setProduct(json)
-            })
-    }, [])
-
-    return (
-        <>
-            <ItemDetail item={product[]} />
-        </>
-    )
-}
-
-export default ItemDetailContainer */
-
-
 import React, { useState, useEffect } from 'react';
-import { products } from '../../assets/productos';
-import { customFetch } from '../../utils/customFetch';
+import { products } from '../../../assets/productos';
+import { customFetch } from '../../../utils/customFetch';
 import { RotatingLines } from 'react-loader-spinner';
-import ItemDetail from '../../components/ItemDetail/ItemDetail';
+import ItemDetail from './ItemDetail/ItemDetail';
+import {useParams} from 'react-router-dom'
 
 const ItemDetailContainer = () => {
-
+//Hooks
     const [product, setProducts] = useState({})
     const [loading, setLoading] = useState(true)
+    let {IdProducto} = useParams()
+
 
     useEffect(() => {
         customFetch(products)
             .then(res => {
                 setLoading(false)
-                setProducts(res)
+                setProducts(res.find((products)=> products.id === parseInt (IdProducto)))
             })
-    }, [])
+    }, [IdProducto])
 
 
     return (
@@ -59,7 +37,9 @@ const ItemDetailContainer = () => {
                         <RotatingLines style={styles.spinner} />
                     </div>
                 ) : (
-                    < ItemDetail item={product[1]} />
+                   // < ItemDetail item={product[1]} />
+                    < ItemDetail item={product} />
+
                 )
             }
 

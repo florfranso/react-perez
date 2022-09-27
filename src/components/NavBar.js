@@ -1,17 +1,23 @@
 import React from "react";
 import logo from '../assets/logo.png';
 import CartWidget from "../components/CartWidget/CartWidget";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
     return (
         <header style={styles.container}>
-            <img style={styles.imagen} src={logo} alt="logo" />
+            <Link to={'/'}>
+                <img style={styles.imagen} src={logo} alt="logo" />
+            </Link>
+
             <nav>
-                <a style={styles.links} href="" >INICIO</a>
-                <a style={styles.links} href="" >PRODUCTOS</a>
-                <a style={styles.links} href="" >CONTACTOS</a>
+                <NavLink style={styles.links} to={'categoria/plantasinterior'}>PLANTAS INTERIOR</NavLink>
+                <Link style={styles.links} to={'categoria/plantasexterior'} >PLANTAS EXTERIOR</Link>
+                <Link style={styles.links} to={'categoria/macetas'} >MACETAS</Link>
+                <Link style={styles.links} to={'categoria/sustratosymejoradores'} >SUSTRATOS Y MEJORADORES</Link>
+                <Link style={styles.links} to={'categoria/accesoriosdejardin'} >ACCESORIOS DE JARDIN</Link>
             </nav>
-            <CartWidget/>
+            <Link to={'/cart'}> <CartWidget /></Link>
         </header>
     )
 }
@@ -25,18 +31,24 @@ const styles = {
         backgroundColor: '#A6CF98',
     },
 
+    branchContainer: {
+        display: "flex",
+        justifyContent: "flex-start",
+        alignItems: "center",
+    },
+
     imagen: {
-        width: '10%',
-        paddingLeft: '7%',
+        width: '33%',
+        paddingLeft: '30%',
 
     },
 
     links: {
-        padding: 10,
+        padding: 5,
         listStyle: 'none',
         textDecoration: 'none',
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 14,
         color: '#0f0f0f',
     },
 
