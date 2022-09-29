@@ -9,7 +9,7 @@ const ItemDetail = ({ item }) => {
 
     const [terminarCompra, setTerminarCompra] = useState();
     // Respuesta a Carga en log.
-    const onAdd = (cantidad) => {
+    const onAdd = () => {
         setTerminarCompra(true);
     };
 
@@ -17,7 +17,7 @@ const ItemDetail = ({ item }) => {
 
     return (
         <>
-            <div className='container-ppal'>
+            <div className='containerPpal'>
                 <div className='container'>
                     <div className='card'>
                         <img src={item.image} alt="imagen" />
@@ -26,10 +26,10 @@ const ItemDetail = ({ item }) => {
                         <h1> {item.product} </h1>
                         <h2>{item.categoria}</h2>
                         <p className='precio'>${item.precio}</p>
-                        <div>
+                        <div >
                             {terminarCompra ? (
                                 <Link to="/cart">
-                                    <button>Finalizar Compra</button>
+                                    <button className='agregar'>FINALIZAR COMPRA</button>
                                 </Link>
                             ) : (
                                 <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />

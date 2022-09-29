@@ -1,11 +1,9 @@
-
 import React, { useState } from 'react';
 
 
 const ItemCount = ({ stock, initial, onAdd }) => {
 
     const [contador, setContador] = useState(initial);
-
 
     const decremento = () => {
         if (contador > initial) {
@@ -15,10 +13,6 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     const aumento = () => {
         setContador(contador + 1);
-    }
-
-    const cantidadSeleccionada = () => {
-        onAdd(contador);
     }
 
 
@@ -36,7 +30,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 > + </button>
             </div>
             <div style={styles.contenedorAgregar}>
-                <button style={styles.agregar} onClick={cantidadSeleccionada}> AGREGAR AL CARRITO </button>
+                <button style={styles.agregar} onClick={onAdd}> AGREGAR AL CARRITO </button>
             </div>
         </>
     )
@@ -109,7 +103,6 @@ const styles = {
         padding: 10,
         backgroundColor: ' #557C55',
         color: 'white',
-
     }
 
 

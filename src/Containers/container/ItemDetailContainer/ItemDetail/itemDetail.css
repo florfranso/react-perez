@@ -18,7 +18,7 @@ h2 {
     margin-top: 0px;
 }
 
-.container-ppal{
+.containerPpal {
     background-color: #A6CF98;
     width: 80%;
     height: 80%;
@@ -30,10 +30,11 @@ h2 {
     align-items: center;
     filter: drop-shadow(5px 5px 5px #557C55);
     border-radius: 20px;
-/*     transition: transform 0.2s;
+    /*     transition: transform 0.2s;
  */
 
 }
+
 .container {
     display: flex;
 }
@@ -59,3 +60,17 @@ h2 {
     text-align: justify;
     margin-top: 0px;
 }
+
+.agregar {
+    width: 250px;
+    height: 30px;
+    justify-content: center;
+    align-content: center;
+    border: none;
+    border-radius: 10px;
+    background-color:  #557C55;
+    color: white;
+    margin-left: 80px;
+    text-decoration: none;
+}
+
