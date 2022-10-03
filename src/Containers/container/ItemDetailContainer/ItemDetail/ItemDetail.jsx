@@ -3,20 +3,26 @@ import './itemDetail.css';
 import ItemCount from '../../../../components/ItemCount';
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from '../../../../Context/CartContext';
 
 
 const ItemDetail = ({ item }) => {
 
     const [terminarCompra, setTerminarCompra] = useState();
+    const { addItem } = useCartContext()
     // Respuesta a Carga en log.
-    const onAdd = () => {
+    const onAdd = (cantidad) => {
         setTerminarCompra(true);
+        addItem(item, cantidad);
     };
 
 
 
     return (
         <>
+            <Link to="/">
+                <button>Volver</button>
+            </Link>
             <div className='containerPpal'>
                 <div className='container'>
                     <div className='card'>
