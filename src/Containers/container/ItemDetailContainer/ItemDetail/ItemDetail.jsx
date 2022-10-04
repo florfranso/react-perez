@@ -1,7 +1,7 @@
 import React from 'react';
 import './itemDetail.css';
 import ItemCount from '../../../../components/ItemCount';
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from '../../../../Context/CartContext';
 
@@ -9,12 +9,14 @@ import { useCartContext } from '../../../../Context/CartContext';
 const ItemDetail = ({ item }) => {
 
     const [terminarCompra, setTerminarCompra] = useState();
-    const { addItem } = useCartContext()
-    // Respuesta a Carga en log.
+
+    const { cart, addItem } = useCartContext()
+
     const onAdd = (cantidad) => {
         setTerminarCompra(true);
         addItem(item, cantidad);
     };
+    console.log(cart);
 
 
 

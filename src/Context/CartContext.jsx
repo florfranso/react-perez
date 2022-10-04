@@ -9,6 +9,7 @@ export const useCartContext = () => useContext(CartContext);
 export const CustomProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
+
     //esta en el carrito, buscar
     const isInCart = (id) => {
         return cart.find(product => product.id === id) ? true : false;
@@ -28,18 +29,8 @@ export const CustomProvider = ({ children }) => {
             setCart([...cart, { id: item.id, name: item.product, price: item.precio, cantidad: cantidad }])
     }
 
-    /* if (isInCart(item.id)) {
-                setCart(cart.map((product) => {
-                    return product.id === item.id
-                        ? { ...product, cantidad: product.cantidad + cantidad }
-                        : product;
-                })
-                );
-            } else {
-                setCart([...cart, { ...item, cantidad }]);
-            }
-        }; */
-    // console.log("Cart de CartContext:", cart);
+    //borrar todos los item
+    const clearCart = () => setCart([]);
 
 
     //remover item
@@ -47,7 +38,9 @@ export const CustomProvider = ({ children }) => {
         setCart(cart.filter((product) => product.id !== id))
     };
 
-    //precio total
+  
+
+/*     //precio total
     const totalPrice = () =>
         cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
 
@@ -58,9 +51,7 @@ export const CustomProvider = ({ children }) => {
             0
         )
 
-    //borrar todos los item
-    const clearCart = () => setCart([]);
-
+ */
 
 
     return (
@@ -69,10 +60,9 @@ export const CustomProvider = ({ children }) => {
                 value={{
                     addItem,
                     clearCart,
-                    //isInCart,
                     removeItem,
-                    totalPrice,
-                    totalProd,
+                  /*   totalPrice,
+                    totalProd, */
                     cart,
 
                 }}
