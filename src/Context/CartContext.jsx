@@ -39,8 +39,7 @@ export const CustomProvider = ({ children }) => {
     };
 
   
-
-/*     //precio total
+    //precio total
     const totalPrice = () =>
         cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
 
@@ -51,7 +50,7 @@ export const CustomProvider = ({ children }) => {
             0
         )
 
- */
+
 
 
     return (
@@ -61,8 +60,8 @@ export const CustomProvider = ({ children }) => {
                     addItem,
                     clearCart,
                     removeItem,
-                  /*   totalPrice,
-                    totalProd, */
+                    totalPrice,
+                    totalProd,
                     cart,
 
                 }}
