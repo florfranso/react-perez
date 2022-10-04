@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 
 //contexto
 const CartContext = createContext([]);
@@ -11,46 +11,79 @@ export const CustomProvider = ({ children }) => {
 
 
     //esta en el carrito, buscar
-    const isInCart = (id) => {
-        return cart.find(product => product.id === id) ? true : false;
+    const isInCart = (id) => cart.find(product => product.id === id) ? true : false;
+
+
+    // agregar item forma1
+    /*    const addItem = (item, cantidad) => {
+            isInCart(item.id)
+                ?
+                setCart(cart.map((prod) => {
+                    if (prod.id === item.id) {
+                        prod.cantidad += cantidad
+                    }
+                    return prod
+                }))
+                :
+                setCart([...cart, { id: item.id, name: item.product, price: item.precio, cantidad: item.cantidad }])
+        }  */
+
+    // agregar item forma2,se sobreescribe
+    /* const addItem = (item, nuevaCantidad) => {
+        const newCart = cart.filter(prod => prod.id !== item.ide);
+        newCart.push({ ...item, cantidad: nuevaCantidad });
+        setCart(newCart)
+    } */
+    // agregar item forma3
+
+    /*   const addItem = (item, nuevaCantidad)=> {
+            const {cantidad = 0} = cart.find ( prod => prod.id === item.id) || {};
+            const newCart = cart.filter ( prod => prod.id !== item.id);
+            setCart([...cart, {...item, cantidad : cantidad + nuevaCantidad }])
+        }  */
+    console.log('carrito: ', cart);
+
+
+    //agregar item forma 4
+
+    const addItem = (item, cantidad) => {
+        if (isInCart(item.id)) {
+            const newCart = cart.map(prod => {
+                if (prod.id === item.id) {
+                    const newCantidad = prod.cantidad + cantidad
+                    return { ...prod, cantidad: newCantidad }
+                } else {
+                    return prod
+                }
+            })
+            setCart(newCart)
+        } else {
+            const newProduct = { ...item, cantidad: cantidad }
+            setCart([...cart, newProduct])
+        }
     }
 
-    // agregar item
-    const addItem = (item, cantidad) => {
-        isInCart(item.id)
-            ?
-            setCart(cart.map((prod) => {
-                if (prod.id === item.id) {
-                    prod.cantidad += cantidad
-                }
-                return prod
-            }))
-            :
-            setCart([...cart, { id: item.id, name: item.product, price: item.precio, cantidad: cantidad }])
-    }
 
     //borrar todos los item
     const clearCart = () => setCart([]);
 
 
     //remover item
-    const removeItem = (id) => {
-        setCart(cart.filter((product) => product.id !== id))
-    };
+    const removeItem = (id) => setCart(cart.filter(product => product.id !== id));
 
-  
+
     //precio total
-    const totalPrice = () =>
-        cart.reduce((prev, act) => prev + act.cantidad * act.precio, 0);
+    const totalPrice = () => {
+        return cart.reduce((acc, product) => acc += (product.price * product.cantidad), 0)
+    }
+
 
     //suma el precio total de los productos
-    const totalProd = () =>
+    //acumulador y producto
+    const totalProd = () => {
         cart.reduce(
-            (acumulador, producActual) => acumulador + producActual.cantidad,
-            0
-        )
-
-
+            (acc, product) => acc += product.cantidad, 0)
+    }
 
 
     return (

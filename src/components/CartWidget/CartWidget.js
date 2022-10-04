@@ -2,16 +2,22 @@ import React from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useCartContext } from '../../Context/CartContext';
 import { Link } from 'react-router-dom';
+import { useState, useContext , useEffect} from "react";
 
 const CartWidget = () => {
-    const { cart, totalProd } = useCartContext()
+    const { cart } = useCartContext()
+
+    let itemsInCart=0;
+
+    cart.map((product)=>{
+        itemsInCart = itemsInCart /* + product.cantidad */
+    })
 
     return (
         <>
             <Link to='/cart'>
                 <ShoppingCartIcon style={styles.carrito} fontSize="large" />
-                <div>{cart.length}</div>
-                <div> {totalProd() || ""}</div>
+                <div>{itemsInCart}</div>
             </Link>
         </>
     )
