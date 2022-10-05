@@ -30,7 +30,9 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                 > + </button>
             </div>
             <div style={styles.contenedorAgregar}>
-                <button style={styles.agregar} onClick={()=> onAdd (contador)}> AGREGAR AL CARRITO </button>
+                <button style={styles.agregar} 
+                onClick={()=> onAdd (contador)}> AGREGAR AL CARRITO 
+                </button>
             </div>
         </>
     )

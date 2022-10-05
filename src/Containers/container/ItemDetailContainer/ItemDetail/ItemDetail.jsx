@@ -10,13 +10,12 @@ const ItemDetail = ({ item }) => {
 
     const [terminarCompra, setTerminarCompra] = useState();
 
-    const { cart, addItem } = useCartContext()
+    const { addItem } = useCartContext()
 
     const onAdd = (cantidad) => {
         setTerminarCompra(true);
         addItem(item, cantidad);
     };
-    console.log(cart);
 
 
 

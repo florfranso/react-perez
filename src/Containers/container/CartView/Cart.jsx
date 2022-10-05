@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
-    const { cart, totalPrice } = useCartContext();
+    const { cart, totalPrice, clearCart } = useCartContext();
 
     if (cart.length === 0) {
         return (
             <>
                 <p>
-                    No hay productos en el carrito <Link to="/"><button>Volver</button></Link>
+                    TU CARRITO ESTA VACIO :( <Link to="/"><button>Volver</button></Link>
                 </p>
             </>
         );
@@ -27,6 +27,9 @@ const Cart = () => {
                 <ItemCart key={product.id} product={product} />
             ))}
             <p>Total a abonar: {totalPrice()}</p>
+            <button onClick={() => clearCart()}>
+                    VACIAR CARRITO
+                </button>
         </>
     );
 };

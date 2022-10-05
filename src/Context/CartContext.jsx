@@ -74,17 +74,17 @@ export const CustomProvider = ({ children }) => {
 
     //precio total
     const totalPrice = () => {
-        return cart.reduce((acc, product) => acc += (product.price * product.cantidad), 0)
+        return cart.reduce((acc, product) => acc += (product.precio * product.cantidad), 0)
     }
 
 
     //suma el precio total de los productos
     //acumulador y producto
-    const totalProd = () => {
+ /*    const totalProd = () => {
         cart.reduce(
             (acc, product) => acc += product.cantidad, 0)
     }
-
+ */
 
     return (
         <>
@@ -94,7 +94,7 @@ export const CustomProvider = ({ children }) => {
                     clearCart,
                     removeItem,
                     totalPrice,
-                    totalProd,
+                    //totalProd,
                     cart,
 
                 }}
