@@ -10,14 +10,17 @@ const NavBar = () => {
                 <img style={styles.imagen} src={logo} alt="logo" />
             </Link>
 
-            <nav>
+            <nav >
                 <NavLink style={styles.links} to={'categoria/PLANTAS_INTERIOR'}>PLANTAS INTERIOR</NavLink>
                 <Link style={styles.links} to={'categoria/PLANTAS_EXTERIOR'} >PLANTAS EXTERIOR</Link>
                 <Link style={styles.links} to={'categoria/MACETAS'} >MACETAS</Link>
                 <Link style={styles.links} to={'categoria/SUSTRATOS_Y_MEJORADORES'} >SUSTRATOS Y MEJORADORES</Link>
                 <Link style={styles.links} to={'categoria/ACCESORIOS_DE_JARDIN'} >ACCESORIOS DE JARDIN</Link>
             </nav>
-            <Link to={'/cart'}> <CartWidget /></Link>
+            <CartWidget />
+            {/* <Link to='/cart'>
+               {/*  <CartWidget />
+            </Link> */}
         </header>
     )
 }
@@ -26,7 +29,7 @@ const NavBar = () => {
 const styles = {
     container: {
         display: 'flex',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
         backgroundColor: '#A6CF98',
     },
@@ -39,7 +42,7 @@ const styles = {
 
     imagen: {
         width: '33%',
-        paddingLeft: '30%',
+        paddingLeft: '15%',
 
     },
 
@@ -50,6 +53,8 @@ const styles = {
         fontWeight: 'bold',
         fontSize: 14,
         color: '#0f0f0f',
+        justifyContent: "center",
+
     },
 
 }

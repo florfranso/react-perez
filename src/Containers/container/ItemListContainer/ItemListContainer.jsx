@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { products } from '../../../assets/productos';
-import { customFetch } from '../../../utils/customFetch';
+//import { products } from '../../../assets/productos';
+//import { customFetch } from '../../../utils/customFetch';
 import ItemList from './ItemList';
 import { RotatingLines } from 'react-loader-spinner';
 import { useParams } from "react-router-dom";
+import { db } from '../../../firebase/firebase';
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 const ItemListContainer = ({ greeting }) => {
 
@@ -15,7 +17,31 @@ const ItemListContainer = ({ greeting }) => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        customFetch(products)
+        const productsCollection = collection(db, 'products'); //se crea la coleccion
+        const q = query(productsCollection, where('categoria', '==', IdCategoria || null));
+
+        getDocs(IdCategoria ? q : productsCollection)
+            .then((data) => {
+                const list = data.docs.map((product) => {
+                    return {
+                        ...product.data(),
+                        id: product.id
+                    }
+                })
+                setListProducts(list);
+            })
+            .catch((e) => {
+                console.log(e);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, [IdCategoria])
+
+
+
+
+    /*     customFetch(products)
             .then(res => {
                 if (IdCategoria) {
                     setListProducts(res.filter((products) => products.categoria === IdCategoria.toUpperCase())
@@ -27,7 +53,7 @@ const ItemListContainer = ({ greeting }) => {
                 }
             })
     }, [IdCategoria])
-
+ */
 
     return (
         < >
