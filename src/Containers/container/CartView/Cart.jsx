@@ -28,8 +28,9 @@ const Cart = () => {
             ))}
             <p>Total a abonar: {totalPrice()}</p>
             <button onClick={() => clearCart()}>
-                    VACIAR CARRITO
-                </button>
+                VACIAR CARRITO
+            </button>
+            <Link to="/form">Ir a pagar</Link>
         </>
     );
 };
