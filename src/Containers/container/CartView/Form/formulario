@@ -1,18 +1,16 @@
-import React, { Fragment } from 'react'
+import React from 'react';
+import { db } from '../../../../firebase/firebase';
+import { collection, addDoc, serverTimestamp, doc, updateDoc } from 'firebase/firestore';
+import { useCartContext } from '../../../../Context/CartContext';
 import { useState } from 'react'
-import {collection, addDoc, serverTimestamp} from "firebase/firestore";
-import '../Form/form.css'
-import { Link } from 'react-router-dom'
+import '../Form/form.css';
+import { Link } from 'react-router-dom';
+import {Fragment} from 'react';
 
-import { useCartContext} from '../../../../Context/CartContext.jsx';
-import { db } from "../../../../firebase/firebase"
 
-const Form = (props) => {
-    const { cart, clearCart, totalPrice } = useCartContext();
 
-   /*  const total = cart.reduce((acc, item) => {
-        return acc + (item.item.price * item.quantity)
-    }, 0) */
+const Form = () => {
+    const { cart, totalPrice, clearCart } = useCartContext();
 
     const [datos, setDatos] = useState({
         Name: "",
@@ -27,31 +25,33 @@ const Form = (props) => {
             ...datos,
             [event.target.name]: event.target.value
         })
-    }
 
-    const buy = (e) => {
-        const ventasCollection = collection(db, "ventas");
-
-        addDoc(ventasCollection, {
-            comprador: datos,
-            items: cart,
-            date: serverTimestamp(),
-            total: totalPrice,
-        })
-        .then((res) => {
-            console.log(res.id);
-            clearCart(); 
+        const finalizarCompra = (e) => {
+            const ventasCollection = collection(db, "ventas");
+            addDoc(ventasCollection, {
+                comprador: datos,
+                items: cart,
+                time: serverTimestamp(),
+                total: totalPrice,
             })
-            .catch(e => {
-                console.log('ups error')
-                console.error(e)
-            })
-    }
+                .then(result => {
+                    console.log(result.id);
+                    clearCart()
+                })
+        }
 
-    return (
+        /*   const actualizarStock = () =>{
+              const updateStock = doc (db, "products", producto.id);
+              updateDoc (updateStock, { stock : (producto.product.stock - producto.cantidad)});
+          }
+       */
 
-        <div>
-            <Fragment>
+
+
+        return (
+
+            <div>
+             <Fragment> 
                 <h1>Form</h1>
                 <form >
                     <div className="container-form">
@@ -73,14 +73,15 @@ const Form = (props) => {
                     </div>
                 </form>
                 <div className="container-button">
-                    <button type="Submit" className="button" onClick={buy}>Submit</button>
+                    <button type="Submit" className="button" onClick={finalizarCompra}>Submit</button>
+                    {/* <button  className="button" onClick={handleClickToHome}>Cancel</button> */}
                     <Link className="Link-Home" to="/">Cancel</Link>
                 </div>
-            </Fragment>
+                </Fragment>
 
-        </div>
-    )
+            </div>
+        )
+
+    }
 }
-
 export default Form
-
