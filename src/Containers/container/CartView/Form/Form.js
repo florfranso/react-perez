@@ -3,8 +3,7 @@ import { useState } from 'react'
 import { collection, addDoc, serverTimestamp, updateDoc, doc } from "firebase/firestore";
 import '../Form/form.css'
 import { Link } from 'react-router-dom'
-
-
+import Swal from 'sweetalert2'
 import { useCartContext } from '../../../../Context/CartContext.jsx';
 import { db } from "../../../../firebase/firebase"
 
@@ -15,6 +14,7 @@ const Form = (props) => {
         Name: "",
         Surname: "",
         DNI: "",
+        Email: "",
         NumberCard: "",
     })
 
@@ -29,21 +29,36 @@ const Form = (props) => {
 
     const buy = (e) => {
         e.preventDefault();
-        const ventasCollection = collection(db, "ventas");
+        if (datos.Name !== "" && datos.Surname !== "" && datos.DNI !== "" && datos.Email !== "") {
+            const ventasCollection = collection(db, "ventas");
 
-        addDoc(ventasCollection, {
-            comprador: datos,
-            items: cart,
-            date: serverTimestamp(),
-            total: totalPrice(),
-        })
-            .then((res) => {
-                setVentaID(res.id);
-                cart.forEach(producto => {
-                    actualizarStock(producto);
-                });
-                clearCart();
+            addDoc(ventasCollection, {
+                comprador: datos,
+                items: cart,
+                date: serverTimestamp(),
+                total: totalPrice(),
             })
+                .then((res) => {
+
+                    setVentaID(res.id);
+                    cart.forEach(producto => {
+                        actualizarStock(producto);
+                    });
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Tu compra fue realizada con éxito " + datos.Name + " Felicitaciones!",
+                        icon: "success",
+                        button: "Aww yiss!",
+                    });
+                    clearCart();
+                })
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No has completado todos los campos',
+            })
+        }
     }
     const actualizarStock = (producto) => {
         const updateStock = doc(db, "products", producto.id);
@@ -69,6 +84,9 @@ const Form = (props) => {
                                 <input type="Number" placeholder="DNI" className="form" name="DNI" onChange={handleInputChange}></input>
                             </div>
                             <div>
+                                <input type="text" placeholder="Email" className="form" name="Email" onChange={handleInputChange}></input>
+                            </div>
+                            <div>
                                 <input type="Number" placeholder="Numero de Contacto" className="form" name="Number-Card" onChange={handleInputChange}></input>
                             </div>
                         </div>
@@ -82,6 +100,7 @@ const Form = (props) => {
                 <div className='contenedorFinal'>
                     <h1>Muchas gracias por su compra!</h1>
                     <h2>Su orden de compra es : {ventaID}</h2>
+                    <h2> En breve  nos estaremos comunicando para coordinar el envío</h2>
                     <Link to='/'><button className='volver'>Volver al Inicio </button></Link>
 
                 </div>
