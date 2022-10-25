@@ -10,17 +10,14 @@ const NavBar = () => {
                 <img style={styles.imagen} src={logo} alt="logo" />
             </Link>
 
-            <nav >
+            <nav style={styles.container}>
                 <NavLink style={styles.links} to={'categoria/PLANTAS_INTERIOR'}>PLANTAS INTERIOR</NavLink>
-                <Link style={styles.links} to={'categoria/PLANTAS_EXTERIOR'} >PLANTAS EXTERIOR</Link>
-                <Link style={styles.links} to={'categoria/MACETAS'} >MACETAS</Link>
-                <Link style={styles.links} to={'categoria/SUSTRATOS_Y_MEJORADORES'} >SUSTRATOS Y MEJORADORES</Link>
-                <Link style={styles.links} to={'categoria/ACCESORIOS_DE_JARDIN'} >ACCESORIOS DE JARDIN</Link>
+                <NavLink style={styles.links} to={'categoria/PLANTAS_EXTERIOR'} >PLANTAS EXTERIOR</NavLink>
+                <NavLink style={styles.links} to={'categoria/ACCESORIOS_DE_JARDIN'} >ACCESORIOS DE JARDIN</NavLink>
+                <NavLink style={styles.links} to={'categoria/SUSTRATOS_Y_MEJORADORES'} >SUSTRATOS Y MEJORADORES</NavLink>
+                <NavLink style={styles.links} to={'categoria/MACETAS'} >MACETAS</NavLink>
             </nav>
             <CartWidget />
-            {/* <Link to='/cart'>
-               {/*  <CartWidget />
-            </Link> */}
         </header>
     )
 }
@@ -29,7 +26,7 @@ const NavBar = () => {
 const styles = {
     container: {
         display: 'flex',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#A6CF98',
     },
@@ -41,20 +38,20 @@ const styles = {
     },
 
     imagen: {
-        width: '33%',
+        width: '45%',
         paddingLeft: '15%',
 
     },
 
     links: {
-        padding: 5,
+        padding: 10,
+        display: 'flex',
         listStyle: 'none',
         textDecoration: 'none',
         fontWeight: 'bold',
-        fontSize: 14,
+        fontSize: 18,
         color: '#0f0f0f',
-        justifyContent: "center",
-
+        justifyContent: 'center',
     },
 
 }

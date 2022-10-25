@@ -1,15 +1,13 @@
 import React from 'react';
 import './itemDetail.css';
 import ItemCount from '../../../../components/ItemCount';
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from '../../../../Context/CartContext';
-
 
 const ItemDetail = ({ item }) => {
 
     const [terminarCompra, setTerminarCompra] = useState();
-
     const { addItem } = useCartContext()
 
     const onAdd = (cantidad) => {
@@ -17,12 +15,10 @@ const ItemDetail = ({ item }) => {
         addItem(item, cantidad);
     };
 
-
-
     return (
         <>
-            <Link to="/">
-                <button>Volver</button>
+            <Link  to="/">
+                <button className='botonVolver'>Volver</button>
             </Link>
             <div className='containerPpal'>
                 <div className='container'>
@@ -46,8 +42,6 @@ const ItemDetail = ({ item }) => {
                 </div>
                 <p className='descripcion'>{item.descripcion}</p>
             </div>
-
-
         </>
     )
 }

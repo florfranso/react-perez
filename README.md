@@ -1,6 +1,10 @@
 # E-Commerce Florencia Perez, vivero:
 
-Este repositorio esta dedicado a las entregas del modulo ReactJS de la carrera Full Stack Developer de CoderHouse. La idea para este proyecto es la de crear un E-Commerce de un vivero de una amiga. Para ello cree las categorias que compondran el mismo, agregue un filtrado de productos por categoria y un cart donde podran colocarse los productos a comprar.
+Este repositorio esta dedicado a las entregas del modulo ReactJS de la carrera Full Stack Developer de CoderHouse. La idea para este proyecto es la de crear un E-Commerce de un vivero de una amiga. 
+
+Para ello cree un catalogo de productos dividido por categorias. Tanto el catalogo como las categorias se encuentran directamente vinculadas a Firebase.
+
+Al seleccionar un producto se puede agregar al carrito y luego de sumar todos los productos necesarios se suma todo el carrito dando el precio final y pasa a la instancia de pago. Luego de colocado todos los datos se procede a pagar y se devuelve el codigo de ID respectivo.
 
 <h1 align="center">Hi 👋, I'm Florencia Pérez</h1>
 <h3 align="center">Una apacionada estudiante de Programación de Argentina</h3>

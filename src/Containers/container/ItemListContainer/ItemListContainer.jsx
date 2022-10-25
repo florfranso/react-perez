@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-//import { products } from '../../../assets/productos';
-//import { customFetch } from '../../../utils/customFetch';
 import ItemList from './ItemList';
 import { RotatingLines } from 'react-loader-spinner';
 import { useParams } from "react-router-dom";
@@ -10,14 +8,13 @@ import { getDocs, collection, query, where } from "firebase/firestore";
 const ItemListContainer = ({ greeting }) => {
 
     let { IdCategoria } = useParams();
-    console.log(IdCategoria);
 
 
     const [listProducts, setListProducts] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        const productsCollection = collection(db, 'products'); //se crea la coleccion
+        const productsCollection = collection(db, 'products');
         const q = query(productsCollection, where('categoria', '==', IdCategoria || null));
 
         getDocs(IdCategoria ? q : productsCollection)
@@ -30,30 +27,11 @@ const ItemListContainer = ({ greeting }) => {
                 })
                 setListProducts(list);
             })
-            .catch((e) => {
-                console.log(e);
-            })
             .finally(() => {
                 setLoading(false);
             });
     }, [IdCategoria])
 
-
-
-
-    /*     customFetch(products)
-            .then(res => {
-                if (IdCategoria) {
-                    setListProducts(res.filter((products) => products.categoria === IdCategoria.toUpperCase())
-                    );
-                    setLoading(false)
-                } else {
-                    setListProducts(res)
-                    setLoading(false)
-                }
-            })
-    }, [IdCategoria])
- */
 
     return (
         < >
@@ -75,7 +53,6 @@ const ItemListContainer = ({ greeting }) => {
                     < ItemList listProducts={listProducts} />
                 )
             }
-
         </>
     )
 }
@@ -98,6 +75,5 @@ const styles = {
         background: "red",
     },
 };
-
 
 export default ItemListContainer

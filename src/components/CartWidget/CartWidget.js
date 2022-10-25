@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
 
 const CartWidget = () => {
-    const { cart} = useCartContext()
+    const { cart } = useCartContext()
 
     const [itemsInCart, setItemsInCart] = useState(0);
 
@@ -29,15 +29,13 @@ const CartWidget = () => {
 }
 
 
-
 //ESTILOS
 const styles = {
     carrito: {
-        paddingRight: '10%',
+        paddingRight: '150px',
         marginRight: '20%',
     }
 }
-
 
 export default CartWidget
 
