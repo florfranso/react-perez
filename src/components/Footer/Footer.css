@@ -1,0 +1,13 @@
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A6CF98;
+}
+
+.imagen {
+    width: 120px;
+}
+
+
+

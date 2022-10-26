@@ -29,6 +29,7 @@ const styles = {
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#A6CF98',
+        overflowX: 'hidden',
     },
 
     branchContainer: {

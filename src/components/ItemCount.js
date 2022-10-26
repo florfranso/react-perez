@@ -57,7 +57,7 @@ const styles = {
         height: 30,
         width:150,
         padding: 10,
-        marginLeft: 100,
+        marginLeft: 50,
         borderRadius: 20,
         alignItems: 'center',
     },
@@ -84,7 +84,8 @@ const styles = {
 
     contenedorAgregar: {
         justifyContent: 'center',
-        display: 'flex',       
+        display: 'flex',    
+        alignItems: 'center', 
     },
 
 

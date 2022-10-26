@@ -1,38 +1,30 @@
 h1 {
-    font-size: 70px;
+    font-size: 50px;
     text-align: center;
-    margin-left: 30px;
+    justify-content: center;
 }
 
 h2 {
-    font-size: 25px;
-    margin-left: 60px;
-    padding: 20px;
+    font-size: 20px;
     margin-top: 0px;
 }
 
 .precio {
-
     font-size: 25px;
-    margin-left: 170px;
     margin-top: 0px;
+    text-align: center;
 }
 
 .containerPpal {
     background-color: #A6CF98;
-    width: 80%;
+    width: 70%;
     height: 80%;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 15px;
-    padding: 30px;
     justify-content: center;
     align-items: center;
     filter: drop-shadow(5px 5px 5px #557C55);
     border-radius: 20px;
-    /*     transition: transform 0.2s;
- */
-
 }
 
 .container {

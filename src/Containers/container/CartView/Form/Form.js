@@ -15,6 +15,7 @@ const Form = (props) => {
         Surname: "",
         DNI: "",
         Email: "",
+        VerificEmail: "",
         NumberCard: "",
     })
 
@@ -29,7 +30,7 @@ const Form = (props) => {
 
     const buy = (e) => {
         e.preventDefault();
-        if (datos.Name !== "" && datos.Surname !== "" && datos.DNI !== "" && datos.Email !== "") {
+        if (datos.Name !== "" && datos.Surname !== "" && datos.DNI !== "" && datos.Email === datos.VerificEmail) {
             const ventasCollection = collection(db, "ventas");
 
             addDoc(ventasCollection, {
@@ -56,7 +57,7 @@ const Form = (props) => {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'No has completado todos los campos',
+                text: 'No has completado todos los campos o los Email no coinciden',
             })
         }
     }
@@ -85,6 +86,9 @@ const Form = (props) => {
                             </div>
                             <div>
                                 <input type="text" placeholder="Email" className="form" name="Email" onChange={handleInputChange}></input>
+                            </div>
+                            <div>
+                                <input type="text" placeholder="Verificacion Email" className="form" name="Email" onChange={handleInputChange}></input>
                             </div>
                             <div>
                                 <input type="Number" placeholder="Numero de Contacto" className="form" name="Number-Card" onChange={handleInputChange}></input>

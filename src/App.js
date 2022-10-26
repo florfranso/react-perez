@@ -6,6 +6,7 @@ import Cart from "./Containers/container/CartView/Cart/Cart.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CustomProvider } from "./Context/CartContext.jsx";
 import Form from "./Containers/container/CartView/Form/Form";
+import Footer from "./components/Footer/Footer.jsx";
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
           </Routes>
         </CustomProvider>
       </BrowserRouter>
+      <Footer/>
     </>
   )
 }
